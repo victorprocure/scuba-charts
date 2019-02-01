@@ -1,1 +1,1 @@
-export { BarometricPressure } from './BarometricPressure';
+export { BarometricPressure } from "./BarometricPressure";

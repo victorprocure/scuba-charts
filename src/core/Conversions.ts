@@ -1,6 +1,6 @@
-import { TemperatureUnit } from "./TemperatureUnit";
-import { DistanceUnit } from './DistanceUnit';
+import { DistanceUnit } from "./DistanceUnit";
 import { PressureUnit } from "./PressureUnit";
+import { TemperatureUnit } from "./TemperatureUnit";
 
 export abstract class UnitConversions {
     public static fahrenheit(value: number, unit = TemperatureUnit.Kelvin) {
@@ -21,7 +21,7 @@ export abstract class UnitConversions {
             case TemperatureUnit.Celsius:
                 return value;
             case TemperatureUnit.Kelvin:
-                return value + 273.15
+                return value + 273.15;
         }
     }
 
@@ -54,8 +54,8 @@ export abstract class UnitConversions {
         }
     }
 
-    public static pascal(value: number, unit = PressureUnit.Pascal){
-        switch(unit){
+    public static pascal(value: number, unit = PressureUnit.Pascal) {
+        switch (unit) {
             case PressureUnit.Pascal:
                 return value;
             case PressureUnit.psi:
@@ -65,8 +65,8 @@ export abstract class UnitConversions {
         }
     }
 
-    public static psi(value: number, unit = PressureUnit.Pascal){
-        switch(unit){
+    public static psi(value: number, unit = PressureUnit.Pascal) {
+        switch (unit) {
             case PressureUnit.Pascal:
                 return value * 6894.75729;
             case PressureUnit.psi:
@@ -76,8 +76,8 @@ export abstract class UnitConversions {
         }
     }
 
-    public static atm(value: number, unit = PressureUnit.Pascal){
-        switch(unit){
+    public static atm(value: number, unit = PressureUnit.Pascal) {
+        switch (unit) {
             case PressureUnit.Pascal:
                 return value * 101325;
             case PressureUnit.psi:

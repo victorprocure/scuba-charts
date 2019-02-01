@@ -5,9 +5,11 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 var PATHS = {
   entryPoint: path.resolve(__dirname, 'src/index.ts'),
   bundles: path.resolve(__dirname, '_bundles'),
+  tsConfig: path.resolve(__dirname, 'tsconfig.json')
 }
 
 var config = {
+  mode: 'production',
   // These are the entry point of our library. We tell webpack to use
   // the name we assign later, when creating the bundle. We also use
   // the name to filter the second entry point for applying code
@@ -35,19 +37,19 @@ var config = {
   // Activate source maps for the bundles in order to preserve the original
   // source when the user debugs the application
   devtool: 'source-map',
-  optimization:{
-      minimizer:[
-          new UglifyJsPlugin({
-              cache: true,
-              parallel: true,
-              sourceMap: true,
-              uglifyOptions: {
-                compress: false,
-                mangle: true
-              },
-              include: /\.min\.js$/
-          })
-      ]
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true,
+        uglifyOptions: {
+          compress: false,
+          mangle: true
+        },
+        include: /\.min\.js$/
+      })
+    ]
   },
   module: {
     // Webpack doesn't understand TypeScript files and a loader is needed.
@@ -55,10 +57,18 @@ var config = {
     // the library dependencies, as well as `__tests__` folders that
     // contain the tests for the library
     rules: [{
-      test: /\.tsx?$/,
-      loader: 'awesome-typescript-loader',
-      exclude: /node_modules/
-    }]
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.tsx?$/,
+        enforce: 'pre',
+        use: [{
+          loader: 'tslint-loader',
+        }]
+      }
+    ]
   }
 }
 

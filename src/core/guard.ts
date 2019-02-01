@@ -1,16 +1,16 @@
 export function isNumber(input: any, shouldThrow = false): boolean {
-    if(input instanceof Number){
+    if (input instanceof Number) {
         return true;
     }
 
-    if(input){
-        var castedInput = input as Number;
-        if(castedInput instanceof Number){
+    if (input) {
+        const castedInput = input as Number;
+        if (castedInput instanceof Number) {
             return true;
         }
     }
 
-    if(shouldThrow){
+    if (shouldThrow) {
         throw "Input is expected to be a number";
     }
 

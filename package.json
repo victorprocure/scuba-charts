@@ -8,7 +8,7 @@
     "clean": "shx rm -rf _bundles lib lib-esm",
     "build": "npm run clean && tsc && tsc -m es6 --outDir lib-esm && webpack"
   },
-  "keywords": [],
+  "keywords": ["SCUBA", "JavaScript", "Webpack"],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -21,6 +21,8 @@
     "mocha": "^5.2.0",
     "shx": "^0.3.2",
     "ts-node": "^8.0.2",
+    "tslint": "^5.12.1",
+    "tslint-loader": "^3.5.4",
     "typescript": "^3.2.4",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.29.0",
