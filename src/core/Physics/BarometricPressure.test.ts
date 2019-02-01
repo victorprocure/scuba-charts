@@ -1,4 +1,3 @@
-import { UnitConversions } from "../Conversions";
 import { BarometricPressure } from "./BarometricPressure";
 
 import * as chai from "chai";
